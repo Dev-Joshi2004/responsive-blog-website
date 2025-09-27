@@ -29,11 +29,17 @@ This project is designed for writers who need a **simple and responsive platform
 ## 📂 Project Structure
 
 responsive-blog-website/
+
 │── index.html # Main Blog Page
+
 │── about.html # About Page
+
 │── write.html # (Optional) Write New Post Page
+
 │── styles.css # Global Styling
+
 │── script.js # Dynamic Post Rendering Logic
+
 │── README.md # Project Documentation
 
 ## 📌 How to Run the Project
