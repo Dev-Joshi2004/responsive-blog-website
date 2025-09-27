@@ -1,0 +1,338 @@
+/*Root*/
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/*Layout*/
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.site-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 16px;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.nav .cta {
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+}
+
+/*Hero & Posts Layout*/
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.hero-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.search {
+  margin: 1rem 0;
+  display: flex;
+  gap: 8px;
+}
+
+.search input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+}
+
+.search button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.posts {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.post {
+  background: #334155;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+}
+
+.post img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/*Sidebar*/
+.sidebar {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tags span {
+  background: #334155;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tags span:hover {
+  background: var(--accent);
+}
+
+/*Recent Links*/
+#recent a {
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+#recent a:hover {
+  text-decoration: underline;
+}
+
+/*Footer*/
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/*Modal*/
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.close-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    width: 100%;
+  }
+}
+
+/*Write Page Form Styling*/
+.write-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.write-form input,
+.write-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.write-form input:focus,
+.write-form textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+.write-form button {
+  background: var(--accent);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.write-form button:hover {
+  background: #2563eb;
+}
+
+/* Mobile Navbar */
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  /* keep things on right side */
+  align-items: center;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Responsive for screens <= 768px */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    /* hidden by default */
+    flex-direction: column;
+    gap: 12px;
+    background: var(--card);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    /* appear below burger button */
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    /* burger shows only on mobile */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}

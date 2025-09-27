@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Personal Blog</title>
+  <meta name="description" content="A clean, responsive personal blog template with posts rendered from local JSON data." />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">PB</div>
+        <div>
+          <div class="site-title">Personal Blog</div>
+          <div class="site-sub">Clean · Minimal · Responsive</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-links" id="navLinks">
+          <a href="/index.html" id="homeLink">Home</a>
+          <a href="/about.html" id="aboutLink">About</a>
+          <a class="cta" href="/write.html" id="newPost">Write</a>
+        </div>
+        <!-- Burger Menu Button on Right -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
+        <div class="mobile-nav" style="display:none">
+          <button id="mobileMenuBtn" class="close-btn">Menu</button>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Write. Share. Repeat.</h1>
+        <p>Create and manage posts with a simple, responsive template — low complexity, mobile-friendly, and ready to use.</p>
+
+        <div class="search">
+          <input id="searchInput" placeholder="Search posts by title or content..." />
+          <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="postsContainer" class="posts" aria-live="polite">
+          <!-- Posts injected here by script.js -->
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <h3>About me</h3>
+        <p class="site-sub">Hi! I'm a writer who likes simple tools. This template renders posts from local JSON and focuses on readability and mobile-first design.</p>
+
+        <h4 style="margin-top:14px">Popular tags</h4>
+        <div id="tags" class="tags"></div>
+
+        <h4 style="margin-top:14px">Recent Posts</h4>
+        <div id="recent" style="display:flex;flex-direction:column;gap:10px;margin-top:8px"></div>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Personal Blog — Built with HTML, CSS & JavaScript
+    </footer>
+  </div>
+
+  <!-- Single post modal -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div style="font-weight:700">Post</div>
+        <div>
+          <button id="closeModal" class="close-btn">Close</button>
+        </div>
+      </div>
+      <img id="modalImage" src="" alt="post image" />
+      <div class="content">
+        <h2 id="modalTitle"></h2>
+        <div id="modalMeta" style="color:var(--muted);font-size:0.9rem;margin-bottom:10px"></div>
+        <div id="modalBody" style="line-height:1.7;color:#dbeafe"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

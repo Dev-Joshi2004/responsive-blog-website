@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - Personal Blog</title>
+    <meta name="description" content="About the writer and the personal blog." />
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">PB</div>
+                <div>
+                    <div class="site-title">Personal Blog</div>
+                    <div class="site-sub">Clean · Minimal · Responsive</div>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <div class="nav-links" id="navLinks">
+                    <a href="/index.html" id="homeLink">Home</a>
+                    <a href="/about.html" id="aboutLink">About</a>
+                    <a class="cta" href="/write.html" id="newPost">Write</a>
+                </div>
+                <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
+            </nav>
+        </header>
+
+
+        <main class="hero" style="display: flex; justify-content: center;">
+            <div class="hero-card">
+                <h1>About Me</h1>
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60"
+                    alt="Writer" style="width:100%; border-radius:12px; margin:1rem 0;" />
+                <p>Hello! I'm a passionate writer who loves sharing ideas, tips, and insights through simple, readable
+                    content. This blog is designed to be minimal, mobile-friendly, and easy to navigate.</p>
+
+                <h2 style="margin-top:20px;">My Mission</h2>
+                <p>To create a distraction-free environment for readers and writers alike, helping people focus on what
+                    matters most: the content.</p>
+
+                <h2 style="margin-top:20px;">Connect with Me</h2>
+                <p>You can reach me via social media or email. I love connecting with fellow writers, developers, and
+                    enthusiasts!</p>
+                <ul style="list-style:none; padding-left:0;">
+                    <li><a href="#" style="color:var(--accent); text-decoration:none;">Twitter</a></li>
+                    <li><a href="#" style="color:var(--accent); text-decoration:none;">LinkedIn</a></li>
+                    <li><a href="#" style="color:var(--accent); text-decoration:none;">Email</a></li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            © <span id="year"></span> Personal Blog — Built with HTML, CSS & JavaScript
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

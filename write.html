@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Write a New Post - Personal Blog</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">PB</div>
+                <div>
+                    <div class="site-title">Personal Blog</div>
+                    <div class="site-sub">Clean · Minimal · Responsive</div>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <div class="nav-links" id="navLinks">
+                    <a href="/index.html" id="homeLink">Home</a>
+                    <a href="/about.html" id="aboutLink">About</a>
+                </div>
+                <!-- Burger Menu Button on Right -->
+                <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
+                <div class="mobile-nav" style="display:none">
+                    <button id="mobileMenuBtn" class="close-btn">Menu</button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="hero" style="display: flex; justify-content: center;">
+            <div class="hero-card" style="width: 80%;">
+                <h1>Write a New Post</h1>
+                <form id="postForm" class="write-form">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" required placeholder="Enter post title" />
+
+                    <label for="image">Image URL:</label>
+                    <input type="text" id="image" required placeholder="Enter image link" />
+
+                    <label for="tags">Tags (comma separated):</label>
+                    <input type="text" id="tags" placeholder="e.g., writing,blog,css" />
+
+                    <label for="content">Content:</label>
+                    <textarea id="content" rows="8" required placeholder="Write your post content here..."></textarea>
+
+                    <button type="submit" class="cta">Publish Post</button>
+                </form>
+                <p id="msg" style="margin-top:10px; color:var(--accent);"></p>
+            </div>
+        </main>
+
+        <footer>
+            © <span id="year"></span> Personal Blog — Built with HTML, CSS & JavaScript
+        </footer>
+    </div>
+
+    <script>
+        const postForm = document.getElementById("postForm");
+        const msg = document.getElementById("msg");
+        const yearEl = document.getElementById("year");
+
+        // Example posts array from home page
+        const posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        postForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const title = document.getElementById("title").value;
+            const image = document.getElementById("image").value;
+            const tags = document.getElementById("tags").value.split(",").map(t => t.trim()).filter(Boolean);
+            const content = document.getElementById("content").value;
+
+            const newPost = {
+                id: Date.now(),
+                title,
+                image,
+                tags,
+                content,
+                date: new Date().toISOString().split("T")[0]
+            };
+
+            posts.push(newPost);
+            localStorage.setItem("posts", JSON.stringify(posts));
+
+            msg.textContent = "Post published successfully!";
+            postForm.reset();
+        });
+
+        yearEl.textContent = new Date().getFullYear();
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>
